@@ -27,7 +27,7 @@ const postUsers = async (req, res)=>{
     // Encriptar nuestra contraseña
 
     // Salt es un algoritmo que genera un hash
-    const salt = bcryptjs.genSaltSync();
+    const salt = bcryptjs.genSaltSync(10);
     usuario.password = bcryptjs.hashSync(password, salt);
     await usuario.save();
     res.json({
